@@ -5,7 +5,7 @@ pipeline {
         jdk 'jdk17'
     }
     environment {
-        SCANNER_HOME = tool 'sonar'
+        SCANNER_HOME = tool 'sonar-scanner'
          }
     stages {
         stage('Git Checkout') {
@@ -41,7 +41,7 @@ pipeline {
         stage('Sonar Analysis') {
             steps {
                withSonarQubeEnv('sonar') {
-                sh ''' $SCANNER_HOME/bin/sonar -Dsonar.projectName=springbootApp -Dsonar.projectKey=springbootApp \
+                sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=springbootApp -Dsonar.projectKey=springbootApp \
                                                        -Dsonar.java.binaries=. -Dsonar.exclusions=**/trivy-fs-output.txt '''
                }
             }
