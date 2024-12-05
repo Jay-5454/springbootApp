@@ -1,4 +1,3 @@
-def registry  ='https://bkrishna928117.jfrog.io/'
 pipeline {
     agent any
     tools {
