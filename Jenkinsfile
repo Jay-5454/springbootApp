@@ -5,7 +5,7 @@ pipeline {
         jdk 'jdk17'
     }
     environment {
-        SCANNER_HOME = tool 'sonar-scanner'
+        SCANNER_HOME = tool 'sonar'
          }
     stages {
         stage('Git Checkout') {
