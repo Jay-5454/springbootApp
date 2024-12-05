@@ -41,7 +41,7 @@ pipeline {
         stage('Sonar Analysis') {
             steps {
                withSonarQubeEnv('sonar') {
-                sh ''' $SCANNER_HOME/bin/sonar -Dsonar.projectName=springbootApp -Dsonar.projectKey=Jay-5454_springbootApp \
+                sh ''' $SCANNER_HOME/bin/sonar -Dsonar.projectName=springbootApp -Dsonar.projectKey=springbootApp \
                                                        -Dsonar.java.binaries=. -Dsonar.exclusions=**/trivy-fs-output.txt '''
                }
             }
