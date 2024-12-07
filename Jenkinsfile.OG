@@ -59,37 +59,31 @@ pipeline {
                sh 'mvn package'
           }
         } 
-       stage("Jar Publish") {
+        stage("Jar Publish") {
             steps {
                 script {
-                echo '<--------------- Jar Publish Started --------------->'
-            
-                // Nexus repository information
-                def nexusUrl = 'http://18.226.17.156:8081'  // Replace with your Nexus URL
-                def repository = 'maven-releases'  // Replace with your Nexus repository
-                def credentialsId = 'nexus-token'  // Jenkins credentials ID for Nexus
-
-                // Define the JAR file details
-                def groupId = 'com.example'  // Replace with your groupId
-                def artifactId = 'springbootApp'  // Replace with your artifactId
-                def version = '1.0.0'  // Replace with your version
-
-            // Use Nexus Artifact Uploader Plugin to upload the JAR file
-            nexusArtifactUploader(
-                nexusUrl: nexusUrl,
-                nexusCredentialId: credentialsId,
-                groupId: groupId,
-                version: version,
-                repository: repository,
-                artifacts: [
-                    [artifactId: artifactId, type: 'jar', file: 'target/springbootApp.jar']
-                ]
-            )
-            
-            echo '<--------------- Jar Publish Ended --------------->'
-        }
-    }
-}
+                        echo '<--------------- Jar Publish Started --------------->'
+                         def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrogaccess"
+                         def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
+                         def uploadSpec = """{
+                              "files": [
+                                {
+                                  "pattern": "target/springbootApp.jar",
+                                  "target": "aws-morning-libs-release",
+                                  "flat": "false",
+                                  "props" : "${properties}",
+                                  "exclusions": [ "*.sha1", "*.md5"]
+                                }
+                             ]
+                         }"""
+                         def buildInfo = server.upload(uploadSpec)
+                         buildInfo.env.collect()
+                         server.publishBuildInfo(buildInfo)
+                         echo '<--------------- Jar Publish Ended --------------->'  
+                
+                }
+            }   
+        } 
         stage('Build Docker Image and TAG') {
             steps {
                 script {
