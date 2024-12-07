@@ -70,7 +70,7 @@ pipeline {
                 def credentialsId = 'nexus-token'  // Jenkins credentials ID for Nexus
 
                 // Define the JAR file details
-                def groupId = 'com.example'  // Replace with your groupId
+                def groupId = 'java.com.tcs.angularjs'  // Replace with your groupId
                 def artifactId = 'springbootApp'  // Replace with your artifactId
                 def version = '1.0.0'  // Replace with your version
 
