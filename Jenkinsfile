@@ -67,7 +67,7 @@ pipeline {
                 // Nexus repository information
                 def nexusUrl = 'http://18.226.17.156:8081'  // Replace with your Nexus URL
                 def repository = 'maven-releases'  // Replace with your Nexus repository
-                def credentialsId = 'nexus-token'  // Jenkins credentials ID for Nexus
+                def credentialsId = 'nexus-credentials'  // Jenkins credentials ID for Nexus
 
                 // Define the JAR file details
                 def groupId = 'java.com.tcs.angularjs'  // Replace with your groupId
