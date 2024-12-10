@@ -78,7 +78,7 @@ pipeline {
                 repository: "${RELEASE_REPO}",
                 credentialsId: "${NEXUS_LOGIN}",
                 artifacts: [
-                    [artifactId: springbootApp,
+                    [artifactId: 'springbootApp',
                     classifier: '',
                     file: 'springbootApp.jar',
                     type: 'jar']
