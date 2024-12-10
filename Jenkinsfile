@@ -74,7 +74,7 @@ pipeline {
                 protocol: 'http',
                 nexusUrl: "${NEXUS_IP}:${NEXUS_PORT}",
                 groupId: 'TEST',
-                version: 1.0,
+                version: '1.0',
                 repository: "${RELEASE_REPO}",
                 credentialsId: "${NEXUS_LOGIN}",
                 artifacts: [
