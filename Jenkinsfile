@@ -10,7 +10,7 @@ pipeline {
         NEXUS_PASSWORD = 'admin123'
         //SNAP_REPO = 'maven-snapshot'
         RELEASE_REPO = 'myrepo-release'
-        NEXUS_IP = '3.142.164.214'
+        NEXUS_IP = '3.17.164.107'
         NEXUS_PORT = '8081'
         NEXUS_LOGIN = "nexus-cred" 
         
