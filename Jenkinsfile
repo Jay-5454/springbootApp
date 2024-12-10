@@ -80,7 +80,7 @@ pipeline {
                 artifacts: [
                     [artifactId: 'springbootApp',
                     classifier: '',
-                    file: 'springbootApp.jar',
+                    file: 'target/springbootApp.jar',
                     type: 'jar']
                 ]
              )
