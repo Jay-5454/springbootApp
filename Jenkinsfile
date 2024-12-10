@@ -12,7 +12,7 @@ pipeline {
         RELEASE_REPO = 'myrepo-release'
         NEXUS_IP = '3.142.164.214'
         NEXUS_PORT = '8081'
-        NEXUS_LOGIN = "nexus-token" 
+        NEXUS_LOGIN = "nexus-cred" 
         
          }
     stages {
