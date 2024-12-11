@@ -10,7 +10,7 @@ pipeline {
         NEXUS_PASSWORD = 'admin123'
         //SNAP_REPO = 'maven-snapshot'
         RELEASE_REPO = 'myrepo-release'
-        NEXUS_IP = '3.17.164.107'
+        NEXUS_IP = '3.149.235.90'
         NEXUS_PORT = '8081'
         NEXUS_LOGIN = "nexus-cred" 
         
@@ -104,8 +104,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                        sh "docker image tag springbootapp:latest bkrrajmali/springbootapp:latest"
-                        sh "docker push bkrrajmali/springbootapp:latest"
+                        sh "docker image tag springbootapp:latest jaycg54/springbootapp::latest"
+                        sh "docker push jaycg54/springbootapp::latest"
 
                     }
                 }
@@ -114,9 +114,9 @@ pipeline {
             stage ('Push Docker Image to AWS ECR') {
         steps {
             script {
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264323019.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker tag springbootapp:latest 058264323019.dkr.ecr.us-east-1.amazonaws.com/myrepo:latest'
-                sh 'docker push 058264323019.dkr.ecr.us-east-1.amazonaws.com/myrepo:latest'
+                sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 992382709064.dkr.ecr.us-east-2.amazonaws.com'
+                sh 'docker tag myrepo:latest 992382709064.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'
+                sh 'docker push 992382709064.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'
             }
         }
     }
