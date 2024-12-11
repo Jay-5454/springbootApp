@@ -105,7 +105,7 @@ pipeline {
             steps {
                 script {
                         sh "docker image tag springbootapp:latest jaycg54/springbootapp::latest"
-                        sh "docker push jaycg54/springbootapp::latest"
+                        sh "docker push jaycg54/springbootapp:latest"
 
                     }
                 }
