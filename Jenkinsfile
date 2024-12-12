@@ -6,8 +6,6 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        NEXUS_USER = 'admin'
-        NEXUS_PASSWORD = 'admin123'
         //SNAP_REPO = 'maven-snapshot'
         RELEASE_REPO = 'myrepo-release'
         NEXUS_IP = '3.149.235.90'
