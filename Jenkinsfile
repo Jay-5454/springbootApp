@@ -8,7 +8,7 @@ pipeline {
         SCANNER_HOME = tool 'sonar-scanner'
         //SNAP_REPO = 'maven-snapshot'
         RELEASE_REPO = 'myrepo-release'
-        NEXUS_IP = ''
+        NEXUS_IP = '3.15.17.228'
         NEXUS_PORT = '8081'
         NEXUS_LOGIN = "nexus-cred" 
         
