@@ -97,7 +97,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 sh 'trivy clean --java-db'
-                sh 'trivy image --format table --scanners vuln -o trivy-image-report.html springbootapp:latest'
+                sh 'trivy image --format table --scanners vuln --timeout 10m -o trivy-image-report.html springbootapp:latest'
             }
         }
         stage('Push Docker Image') {
