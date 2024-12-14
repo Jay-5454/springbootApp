@@ -121,3 +121,7 @@ kubectl version --client
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
+
+
+#Create cluster
+eksctl create cluster --name eks2 --region us-east-2 --version 1.31 --nodegroup-name my-nodes --node-type t2.medium --managed --nodes 2 --nodes-min 1 --node-max 2 --ssh-access --ssh-public-key "key-name" --max-pods-per-node 110
